@@ -12,7 +12,9 @@ class TodoController extends Controller
         $this->task = new Todo();
     }
     public function index (){
-        return view('pages.todo.index');
+
+        $response['tasks']=$this->task->all();
+        return view('pages.todo.index')->with($response);
     }
 
     public function store(Request $request){
